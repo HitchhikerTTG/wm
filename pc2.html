@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Parent's Choice -- Wireframe v2</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+–cream: #F5F0E8;
+–blush: #EDD5C0;
+–sage: #B8C9B0;
+–purple: #6B4E8A;
+–purple-light: #9B7BB8;
+–purple-pale: #EDE5F5;
+–green-dark: #2D4A27;
+–text-dark: #2C2416;
+–text-mid: #6B5D4F;
+–text-light: #9C8E82;
+–border: #E2D8CC;
+–warm-white: #FDFAF5;
+}
+
+body {
+font-family: ‘DM Sans’, sans-serif;
+background: #DEDAD3;
+color: var(–text-dark);
+font-size: 13px;
+}
+
+.page {
+max-width: 860px;
+margin: 24px auto;
+background: var(–warm-white);
+border-radius: 4px;
+overflow: hidden;
+box-shadow: 0 4px 32px rgba(0,0,0,0.12);
+}
+
+/* ── SECTION LABEL ── */
+.sl {
+font-size: 9px;
+letter-spacing: 0.14em;
+text-transform: uppercase;
+color: var(–text-light);
+padding: 5px 16px;
+background: var(–cream);
+border-bottom: 1px dashed var(–border);
+font-weight: 500;
+}
+
+/* ── 1. HERO ── */
+.hero {
+background: linear-gradient(135deg, #F0E6D4 0%, #E8D4BC 40%, #DEC8AA 100%);
+height: 240px;
+display: grid;
+grid-template-columns: 1fr 320px;
+position: relative;
+overflow: hidden;
+}
+.hero::after {
+content: ‘’;
+position: absolute;
+right: 0; top: 0; bottom: 0;
+width: 320px;
+background: linear-gradient(135deg, rgba(180,155,200,0.12), rgba(107,78,138,0.08));
+}
+.hero-left {
+padding: 36px 32px;
+display: flex;
+flex-direction: column;
+justify-content: center;
+gap: 10px;
+z-index: 1;
+}
+.hero-eyebrow {
+font-size: 9px;
+letter-spacing: 0.16em;
+text-transform: uppercase;
+color: var(–purple);
+font-weight: 500;
+}
+.hero-title {
+font-family: ‘Playfair Display’, serif;
+font-size: 30px;
+line-height: 1.15;
+color: var(–text-dark);
+}
+.hero-title em { font-style: italic; color: var(–purple); }
+.hero-sub {
+font-size: 11px;
+color: var(–text-mid);
+line-height: 1.5;
+max-width: 300px;
+}
+.hero-btns { display: flex; gap: 10px; margin-top: 4px; }
+.btn-p {
+background: var(–purple); color: #fff;
+padding: 8px 18px; border-radius: 20px;
+font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 500;
+}
+.btn-o {
+background: transparent; color: var(–purple);
+padding: 8px 18px; border-radius: 20px;
+font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 500;
+border: 1.5px solid var(–purple);
+}
+.hero-right {
+z-index: 1;
+display: flex;
+align-items: center;
+justify-content: center;
+flex-direction: column;
+gap: 6px;
+color: #9C7A5A;
+font-size: 9px;
+letter-spacing: 0.1em;
+text-transform: uppercase;
+font-style: italic;
+}
+.hero-right-icon { font-size: 52px; opacity: 0.3; }
+
+/* ── 2. CATEGORY GRID ── */
+.cat-grid {
+display: grid;
+grid-template-columns: repeat(4, 1fr);
+gap: 0;
+border-bottom: 1px solid var(–border);
+}
+.cat-tile {
+border-right: 1px solid var(–border);
+text-align: center;
+padding: 18px 12px 14px;
+cursor: pointer;
+transition: background 0.15s;
+}
+.cat-tile:last-child { border-right: none; }
+.cat-tile:hover { background: var(–cream); }
+.cat-tile-icon {
+width: 64px; height: 64px;
+border-radius: 8px;
+margin: 0 auto 8px;
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 26px;
+}
+.cat-tile-label { font-size: 11px; font-weight: 500; color: var(–text-dark); }
+.cat-tile-sub { font-size: 9px; color: var(–text-light); margin-top: 2px; letter-spacing: 0.04em; }
+
+/* second row of 4 */
+.cat-grid-2 {
+display: grid;
+grid-template-columns: repeat(4, 1fr);
+gap: 0;
+border-bottom: 1px solid var(–border);
+border-top: 1px solid var(–border);
+}
+.cat-grid-2 .cat-tile { border-top: none; }
+
+/* ── 3. PROMO SPLIT ── */
+.promo-split {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 0;
+border-bottom: 1px solid var(–border);
+min-height: 200px;
+}
+.promo-left {
+background: linear-gradient(145deg, #EDD5C0, #DEC0A0);
+padding: 28px 28px;
+display: flex;
+flex-direction: column;
+justify-content: center;
+gap: 8px;
+border-right: 1px solid var(–border);
+}
+.promo-tag { font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase; color: var(–purple); font-weight: 500; }
+.promo-title { font-family: ‘Playfair Display’, serif; font-size: 22px; line-height: 1.2; }
+.promo-sub { font-size: 11px; color: var(–text-mid); line-height: 1.4; }
+.promo-cta { margin-top: 6px; }
+
+.promo-right {
+display: grid;
+grid-template-rows: 1fr 1fr;
+grid-template-columns: 1fr 1fr;
+gap: 0;
+}
+.promo-sub-tile {
+border-left: 1px solid var(–border);
+border-bottom: 1px solid var(–border);
+padding: 16px;
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+background: #fff;
+}
+.promo-sub-tile:nth-child(2) { border-bottom: 1px solid var(–border); }
+.promo-sub-tile:nth-child(3), .promo-sub-tile:nth-child(4) { border-bottom: none; }
+.promo-sub-tag { font-size: 9px; text-transform: uppercase; letter-spacing: 0.08em; color: var(–purple); font-weight: 500; }
+.promo-sub-title { font-size: 12px; line-height: 1.3; margin-top: 4px; }
+.promo-sub-link { font-size: 10px; color: var(–purple); margin-top: 6px; }
+
+/* ── SHARED: product-row ── */
+.product-row-wrap {
+display: grid;
+grid-template-columns: 200px 1fr;
+gap: 0;
+border-bottom: 1px solid var(–border);
+min-height: 180px;
+}
+.product-row-wrap.flip { direction: rtl; }
+.product-row-wrap.flip > * { direction: ltr; }
+
+.row-banner {
+padding: 24px 20px;
+display: flex;
+flex-direction: column;
+justify-content: center;
+gap: 8px;
+}
+.row-banner.diapers { background: linear-gradient(145deg, #EDD5C0, #DCAB88); border-right: 1px solid var(–border); }
+.row-banner.foods   { background: linear-gradient(145deg, #D4E2CF, #AECBA4); border-left: 1px solid var(–border); }
+.row-banner.else    { background: linear-gradient(145deg, #EDE5F5, #D0BAEC); border-right: 1px solid var(–border); }
+
+.row-banner-tag { font-size: 9px; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 500; }
+.row-banner-tag.diapers { color: #7A3A10; }
+.row-banner-tag.foods   { color: var(–green-dark); }
+.row-banner-tag.else    { color: var(–purple); }
+.row-banner-title { font-family: ‘Playfair Display’, serif; font-size: 18px; line-height: 1.2; }
+.row-banner-sub { font-size: 10px; color: var(–text-mid); line-height: 1.4; }
+.row-banner-link { font-size: 10px; font-weight: 500; margin-top: 4px; }
+.row-banner-link.diapers { color: #7A3A10; }
+.row-banner-link.foods   { color: var(–green-dark); }
+.row-banner-link.else    { color: var(–purple); }
+
+.product-cards {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 0;
+}
+.pc {
+border-left: 1px solid var(–border);
+padding: 14px;
+display: flex;
+flex-direction: column;
+background: #fff;
+}
+.pc:first-child { border-left: none; }
+.pc-img {
+height: 80px;
+border-radius: 4px;
+margin-bottom: 8px;
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 9px;
+text-transform: uppercase;
+letter-spacing: 0.06em;
+color: var(–text-light);
+font-style: italic;
+position: relative;
+}
+.pc-img-icon { position: absolute; font-size: 28px; opacity: 0.25; }
+.pc-img.diapers-bg { background: linear-gradient(145deg, #F5EDE0, #EDD5C0); }
+.pc-img.foods-bg   { background: linear-gradient(145deg, #E8F0E4, #D4E2CF); }
+.pc-img.else-bg    { background: linear-gradient(145deg, #F0EAF8, #E0D0F0); }
+
+.pc-stars { color: #F5A623; font-size: 10px; }
+.pc-name { font-size: 11px; line-height: 1.3; color: var(–text-dark); margin-top: 3px; flex: 1; }
+.pc-price { font-size: 15px; font-weight: 400; color: var(–purple); margin-top: 6px; }
+.pc-price-old { font-size: 10px; color: var(–text-light); text-decoration: line-through; }
+.pc-add {
+margin-top: 8px; width: 100%;
+background: var(–purple); color: #fff;
+border: none; padding: 6px; border-radius: 4px;
+font-size: 10px; letter-spacing: 0.04em; text-transform: uppercase;
+cursor: pointer;
+}
+
+/* ── TESTIMONIALS / VILLAGE ── */
+.testimonials-section {
+background: var(–purple);
+padding: 28px 24px;
+color: #fff;
+}
+.test-head {
+display: flex;
+justify-content: space-between;
+align-items: baseline;
+margin-bottom: 18px;
+}
+.test-title { font-family: ‘Playfair Display’, serif; font-size: 22px; }
+.test-subtitle { font-size: 10px; opacity: 0.7; font-style: italic; }
+.test-viewall { font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.7; text-decoration: underline; cursor: pointer; }
+.test-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.test-card {
+background: rgba(255,255,255,0.1);
+border: 1px solid rgba(255,255,255,0.2);
+border-radius: 6px;
+padding: 16px;
+position: relative;
+}
+.test-quote-mark {
+font-family: ‘Playfair Display’, serif;
+font-size: 40px;
+opacity: 0.25;
+line-height: 1;
+position: absolute;
+top: 8px; left: 12px;
+}
+.test-text { font-size: 11px; line-height: 1.6; font-style: italic; opacity: 0.9; margin-top: 18px; }
+.test-stars { color: #FFD97D; font-size: 11px; margin-top: 10px; }
+.test-author { display: flex; align-items: center; gap: 8px; margin-top: 10px; }
+.test-avatar {
+width: 26px; height: 26px; border-radius: 50%;
+background: rgba(255,255,255,0.2);
+display: flex; align-items: center; justify-content: center; font-size: 12px;
+}
+.test-name { font-size: 10px; font-weight: 500; }
+.test-detail { font-size: 9px; opacity: 0.6; }
+
+/* ── FOOTER ── */
+.footer {
+background: var(–text-dark);
+color: rgba(255,255,255,0.55);
+padding: 14px 24px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+font-size: 10px;
+letter-spacing: 0.06em;
+}
+.footer-logo { font-family: ‘Playfair Display’, serif; color: #fff; font-size: 13px; }
+
+/* ── LEGEND ── */
+.legend {
+background: #2C2416; color: #fff;
+padding: 12px 20px;
+display: flex; gap: 20px; align-items: center; flex-wrap: wrap;
+font-size: 10px;
+}
+.legend strong { font-size: 12px; }
+.dot { width: 10px; height: 10px; border-radius: 2px; display: inline-block; margin-right: 4px; vertical-align: middle; }
+
+.map {
+max-width: 860px; margin: 12px auto 24px;
+background: #fff; border-radius: 4px; padding: 16px 20px;
+font-size: 10px; color: #666; line-height: 1.9;
+border: 1px solid #ddd;
+}
+.map strong { font-size: 12px; color: #2C2416; display: block; margin-bottom: 4px; }
+</style>
+
+</head>
+<body>
+
+<div class="legend">
+  <strong>Parent's Choice -- Wireframe v2</strong>
+  <span><span class="dot" style="background:#EDD5C0"></span>Hero / Diapers & Pants</span>
+  <span><span class="dot" style="background:#D4E2CF"></span>Foods & Drinks</span>
+  <span><span class="dot" style="background:#EDE5F5"></span>Everything else</span>
+  <span><span class="dot" style="background:#6B4E8A"></span>Testimonials / Village</span>
+</div>
+
+<div class="page">
+
+  <!-- ① HERO -->
+
+  <div class="sl">① Hero Image</div>
+  <div class="hero">
+    <div class="hero-left">
+      <div class="hero-eyebrow">It takes a village to raise a child</div>
+      <div class="hero-title">Trusted care,<br><em>village-tested</em><br>prices.</div>
+      <div class="hero-sub">Everything your family needs -- diapers, formula, wipes, foods and more.</div>
+      <div class="hero-btns">
+        <div class="btn-p">Shop Diapers</div>
+        <div class="btn-o">Explore all</div>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-right-icon">🌿</div>
+      Brand hero image<br>(watercolor + baby)
+    </div>
+  </div>
+
+  <!-- ② CATEGORY GRID -- 8 tiles, 2 rows of 4 -->
+
+  <div class="sl">② Categories (8 tiles)</div>
+  <div class="cat-grid">
+    <div class="cat-tile">
+      <div class="cat-tile-icon" style="background:linear-gradient(145deg,#F5EDE0,#EDD5C0)">🍼</div>
+      <div class="cat-tile-label">Diapers</div>
+      <div class="cat-tile-sub">All sizes</div>
+    </div>
+    <div class="cat-tile">
+      <div class="cat-tile-icon" style="background:linear-gradient(145deg,#EDE5F5,#D8C8F0)">👖</div>
+      <div class="cat-tile-label">Pants</div>
+      <div class="cat-tile-sub">Training & overnight</div>
+    </div>
+    <div class="cat-tile">
+      <div class="cat-tile-icon" style="background:linear-gradient(145deg,#E8F0E4,#D4E2CF)">🧻</div>
+      <div class="cat-tile-label">Wipes</div>
+      <div class="cat-tile-sub">Fragrance-free & more</div>
+    </div>
+    <div class="cat-tile">
+      <div class="cat-tile-icon" style="background:linear-gradient(145deg,#FFF3E8,#FFE0C0)">🥛</div>
+      <div class="cat-tile-label">Formula</div>
+      <div class="cat-tile-sub">Infant & toddler</div>
+    </div>
+  </div>
+  <div class="cat-grid-2">
+    <div class="cat-tile" style="border-top:1px solid var(--border)">
+      <div class="cat-tile-icon" style="background:linear-gradient(145deg,#FFF8E8,#FFEDC0)">🥣</div>
+      <div class="cat-tile-label">Foods & Drinks</div>
+      <div class="cat-tile-sub">Snacks, pouches, juices</div>
+    </div>
+    <div class="cat-tile" style="border-top:1px solid var(--border)">
+      <div class="cat-tile-icon" style="background:linear-gradient(145deg,#E8F0F8,#C8DCF0)">🍽️</div>
+      <div class="cat-tile-label">Feeding Essentials</div>
+      <div class="cat-tile-sub">Bottles, bibs, spoons</div>
+    </div>
+    <div class="cat-tile" style="border-top:1px solid var(--border)">
+      <div class="cat-tile-icon" style="background:linear-gradient(145deg,#F0F0F8,#D8D8F0)">🛏️</div>
+      <div class="cat-tile-label">Bedding</div>
+      <div class="cat-tile-sub">Sheets, blankets</div>
+    </div>
+    <div class="cat-tile" style="border-top:1px solid var(--border);border-right:none">
+      <div class="cat-tile-icon" style="background:linear-gradient(145deg,#E8F4F8,#C8E4F0)">🛁</div>
+      <div class="cat-tile-label">Bath</div>
+      <div class="cat-tile-sub">Wash, lotion, care</div>
+    </div>
+  </div>
+
+  <!-- ③ PROMO SPLIT -- Pants & Diapers / Formula sub-tiles -->
+
+  <div class="sl">③ Pants & Diapers · Formula promo block</div>
+  <div class="promo-split">
+    <div class="promo-left">
+      <div class="promo-tag">Featured</div>
+      <div class="promo-title">Pants &<br>Diapers</div>
+      <div class="promo-sub">Leakproof protection for every stage -- from newborn to potty training. Value you can count on.</div>
+      <div class="promo-cta"><span class="btn-p" style="font-size:10px">Shop now</span></div>
+    </div>
+    <div class="promo-right">
+      <div class="promo-sub-tile" style="border-bottom:1px solid var(--border)">
+        <div>
+          <div class="promo-sub-tag">Formula</div>
+          <div class="promo-sub-title">Infant & Gentle formulas -- trusted nutrition from day one</div>
+        </div>
+        <div class="promo-sub-link">Shop now →</div>
+      </div>
+      <div class="promo-sub-tile" style="border-bottom:1px solid var(--border)">
+        <div>
+          <div class="promo-sub-tag">Foods</div>
+          <div class="promo-sub-title">Stage 1–3 purees, snacks & toddler drinks</div>
+        </div>
+        <div class="promo-sub-link">Shop now →</div>
+      </div>
+      <div class="promo-sub-tile">
+        <div>
+          <div class="promo-sub-tag">Wipes</div>
+          <div class="promo-sub-title">Thick, gentle wipes -- for every change</div>
+        </div>
+        <div class="promo-sub-link">Shop now →</div>
+      </div>
+      <div class="promo-sub-tile">
+        <div>
+          <div class="promo-sub-tag">Feeding</div>
+          <div class="promo-sub-title">Bottles, bibs & spoons -- mealtime made easy</div>
+        </div>
+        <div class="promo-sub-link">Shop now →</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ④ TESTIMONIALS / VILLAGE -->
+
+  <div class="sl">④ Testimonials / Village</div>
+  <div class="testimonials-section">
+    <div class="test-head">
+      <div>
+        <div class="test-title">What parents are saying</div>
+        <div class="test-subtitle">It takes a village -- here's ours</div>
+      </div>
+      <div class="test-viewall">See all reviews →</div>
+    </div>
+    <div class="test-grid">
+      <div class="test-card">
+        <div class="test-quote-mark">"</div>
+        <div class="test-text">I've tried every brand on the shelf. Parent's Choice holds up overnight -- and at that price, I finally stopped worrying about the budget on top of everything else.</div>
+        <div class="test-stars">★★★★★</div>
+        <div class="test-author">
+          <div class="test-avatar">👩</div>
+          <div>
+            <div class="test-name">Sarah M.</div>
+            <div class="test-detail">Mom of 2 · Verified buyer</div>
+          </div>
+        </div>
+      </div>
+      <div class="test-card">
+        <div class="test-quote-mark">"</div>
+        <div class="test-text">My son's skin is really sensitive and these are the only diapers that don't cause a rash. Found this brand through another mom -- the village is real.</div>
+        <div class="test-stars">★★★★★</div>
+        <div class="test-author">
+          <div class="test-avatar">👩</div>
+          <div>
+            <div class="test-name">Jessica T.</div>
+            <div class="test-detail">First-time mom · Verified buyer</div>
+          </div>
+        </div>
+      </div>
+      <div class="test-card">
+        <div class="test-quote-mark">"</div>
+        <div class="test-text">The training pants made potty training way less stressful. Easy on, easy off, no leaks. My daughter loves pulling them up herself.</div>
+        <div class="test-stars">★★★★★</div>
+        <div class="test-author">
+          <div class="test-avatar">👨</div>
+          <div>
+            <div class="test-name">Marcus R.</div>
+            <div class="test-detail">Dad of 3 · Verified buyer</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ⑤ PANTS & DIAPERS -- banner left, 3 products right -->
+
+  <div class="sl">⑤ Pants & Diapers -- 3 products</div>
+  <div class="product-row-wrap">
+    <div class="row-banner diapers">
+      <div class="row-banner-tag diapers">Diapers & Pants</div>
+      <div class="row-banner-title">Protection<br>for every stage</div>
+      <div class="row-banner-sub">Newborn to training -- all sizes, all needs.</div>
+      <div class="row-banner-link diapers">View all →</div>
+    </div>
+    <div class="product-cards">
+      <div class="pc">
+        <div class="pc-img diapers-bg"><div class="pc-img-icon">🍼</div>Product image</div>
+        <div class="pc-stars">★★★★★ <span style="color:#999;font-size:9px">(1,243)</span></div>
+        <div class="pc-name">Diapers Size 3 · 222 ct</div>
+        <div class="pc-price">$24.97 <span class="pc-price-old">$28.22</span></div>
+        <button class="pc-add">+ Add</button>
+      </div>
+      <div class="pc">
+        <div class="pc-img diapers-bg"><div class="pc-img-icon">🍼</div>Product image</div>
+        <div class="pc-stars">★★★★★ <span style="color:#999;font-size:9px">(987)</span></div>
+        <div class="pc-name">Diapers Sensitive Size 2 · 192 ct</div>
+        <div class="pc-price">$20.97</div>
+        <button class="pc-add">+ Add</button>
+      </div>
+      <div class="pc">
+        <div class="pc-img diapers-bg"><div class="pc-img-icon">👖</div>Product image</div>
+        <div class="pc-stars">★★★★★ <span style="color:#999;font-size:9px">(832)</span></div>
+        <div class="pc-name">Training Pants 2T–3T Girls · 92 ct</div>
+        <div class="pc-price">$19.97</div>
+        <button class="pc-add">+ Add</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ⑥ FOODS & DRINKS -- 3 products left, banner right -->
+
+  <div class="sl">⑥ Foods & Drinks -- 3 products</div>
+  <div class="product-row-wrap flip">
+    <div class="row-banner foods">
+      <div class="row-banner-tag foods">Foods & Drinks</div>
+      <div class="row-banner-title">Nourishing<br>every bite</div>
+      <div class="row-banner-sub">Purees, snacks, juices and toddler drinks -- all stages covered.</div>
+      <div class="row-banner-link foods">View all →</div>
+    </div>
+    <div class="product-cards">
+      <div class="pc">
+        <div class="pc-img foods-bg"><div class="pc-img-icon">🥣</div>Product image</div>
+        <div class="pc-stars">★★★★★ <span style="color:#999;font-size:9px">(654)</span></div>
+        <div class="pc-name">Apple & Banana Puree Stage 1 · 4 oz, 12 ct</div>
+        <div class="pc-price">$8.97</div>
+        <button class="pc-add" style="background:#4A7A40">+ Add</button>
+      </div>
+      <div class="pc">
+        <div class="pc-img foods-bg"><div class="pc-img-icon">🍎</div>Product image</div>
+        <div class="pc-stars">★★★★☆ <span style="color:#999;font-size:9px">(421)</span></div>
+        <div class="pc-name">Toddler Apple Juice · 6.75 oz, 8 ct</div>
+        <div class="pc-price">$5.97</div>
+        <button class="pc-add" style="background:#4A7A40">+ Add</button>
+      </div>
+      <div class="pc">
+        <div class="pc-img foods-bg"><div class="pc-img-icon">🥨</div>Product image</div>
+        <div class="pc-stars">★★★★★ <span style="color:#999;font-size:9px">(318)</span></div>
+        <div class="pc-name">Puffs Snacks Strawberry · 1.48 oz</div>
+        <div class="pc-price">$2.47</div>
+        <button class="pc-add" style="background:#4A7A40">+ Add</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ⑦ EVERYTHING ELSE -- banner left, 3 products right -->
+
+  <div class="sl">⑦ Everything else -- 3 products</div>
+  <div class="product-row-wrap">
+    <div class="row-banner else">
+      <div class="row-banner-tag else">Wipes · Feeding · Bath · Bedding</div>
+      <div class="row-banner-title">Everything<br>else your<br>baby needs</div>
+      <div class="row-banner-sub">From bath time to mealtime -- all in one place.</div>
+      <div class="row-banner-link else">View all →</div>
+    </div>
+    <div class="product-cards">
+      <div class="pc">
+        <div class="pc-img else-bg"><div class="pc-img-icon">🧻</div>Product image</div>
+        <div class="pc-stars">★★★★★ <span style="color:#999;font-size:9px">(2,104)</span></div>
+        <div class="pc-name">Fragrance-Free Baby Wipes · 800 ct</div>
+        <div class="pc-price">$12.97</div>
+        <button class="pc-add">+ Add</button>
+      </div>
+      <div class="pc">
+        <div class="pc-img else-bg"><div class="pc-img-icon">🍼</div>Product image</div>
+        <div class="pc-stars">★★★★★ <span style="color:#999;font-size:9px">(731)</span></div>
+        <div class="pc-name">Slow-Flow Baby Bottle · 5 oz, 2-pack</div>
+        <div class="pc-price">$6.97</div>
+        <button class="pc-add">+ Add</button>
+      </div>
+      <div class="pc">
+        <div class="pc-img else-bg"><div class="pc-img-icon">🛁</div>Product image</div>
+        <div class="pc-stars">★★★★☆ <span style="color:#999;font-size:9px">(489)</span></div>
+        <div class="pc-name">Gentle Baby Wash & Shampoo · 18 fl oz</div>
+        <div class="pc-price">$4.97</div>
+        <button class="pc-add">+ Add</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+
+  <div class="footer">
+    <div class="footer-logo">Parent's Choice™</div>
+    <div>It takes a village to raise a child… we have built one.</div>
+    <div>A Walmart brand</div>
+  </div>
+
+</div>
+
+<div class="map">
+  <strong>Section map -- v2</strong>
+  ① Hero -- brand image + tagline + dual CTA<br>
+  ② Categories -- 8 tiles, 2×4 grid (Diapers, Pants, Wipes, Formula, Foods, Feeding, Bedding, Bath)<br>
+  ③ Promo split -- Pants & Diapers hero left · Formula / Foods / Wipes / Feeding sub-tiles right<br>
+  ④ Testimonials / Village -- full-width purple band, 3 reviews<br>
+  ⑤ Diapers & Pants -- banner + 3 products<br>
+  ⑥ Foods & Drinks -- 3 products + banner (mirrored)<br>
+  ⑦ Everything else -- banner + 3 products (Wipes, Feeding, Bath)
+</div>
+
+</body>
+</html>
