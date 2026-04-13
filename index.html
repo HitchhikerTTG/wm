@@ -1,0 +1,1153 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Parent's Choice -- A Walmart Brand</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+–purple:      #6B4E8A;
+–purple-dark: #4A2D6A;
+–cream:       #F5F0E8;
+–blush:       #EDD5C0;
+–sage:        #B8C9B0;
+–green:       #3A6634;
+–text:        #1C1410;
+–mid:         #444;
+–light:       #767676;
+–border:      #E8E0D4;
+–white:       #fff;
+–near-white:  #F4F4F4;
+–blue:        #001E60;
+}
+
+body {
+font-family: ‘Lato’, sans-serif;
+color: var(–text);
+background: #fff;
+font-size: 14px;
+line-height: 1.4;
+}
+
+/* ── SKINNY BANNER (Express Delivery equivalent) ── */
+.skinny-banner {
+background: #E8F5E4;
+padding: 12px 24px;
+display: grid;
+grid-template-columns: 180px 1fr 180px;
+align-items: center;
+gap: 16px;
+min-height: 80px;
+}
+.sb-left {
+background: #fff;
+border-radius: 8px;
+padding: 10px 14px;
+display: flex;
+align-items: center;
+gap: 8px;
+font-weight: 700;
+font-size: 14px;
+color: var(–purple);
+}
+.sb-left-icon {
+background: var(–purple);
+color: #fff;
+width: 28px; height: 28px;
+border-radius: 50%;
+display: flex; align-items: center; justify-content: center;
+font-size: 14px; flex-shrink: 0;
+}
+.sb-center { text-align: center; }
+.sb-center h2 {
+font-family: ‘Lato’, sans-serif;
+font-size: 18px; font-weight: 700;
+color: var(–blue);
+}
+.sb-center p { font-size: 13px; color: var(–blue); margin-top: 3px; }
+.sb-center a {
+font-size: 13px; color: var(–blue);
+text-decoration: underline; cursor: pointer;
+display: inline-block; margin-top: 4px;
+}
+.sb-right {
+display: flex; gap: 8px; justify-content: flex-end;
+}
+.sb-product {
+width: 70px; height: 70px; border-radius: 8px;
+display: flex; align-items: center; justify-content: center;
+font-size: 28px;
+}
+
+/* ── MAIN CONTENT ── */
+.main { max-width: 1380px; margin: 0 auto; padding: 0 24px; }
+
+/* ── SECTION: Explore the range (hub spokes) ── */
+.section-header {
+display: flex; justify-content: space-between;
+align-items: baseline;
+padding: 20px 0 16px;
+}
+.section-header h2 {
+font-family: ‘Lato’, sans-serif;
+font-size: 20px; font-weight: 700; color: var(–text);
+}
+.view-all {
+font-size: 14px; color: var(–text);
+text-decoration: none; cursor: pointer;
+}
+.view-all:hover { text-decoration: underline; }
+
+/* Hub spokes grid -- mirrors bettergoods 4+4 */
+.hub-grid {
+display: grid;
+grid-template-columns: repeat(8, 1fr);
+gap: 4px;
+padding-bottom: 20px;
+}
+.hub-tile {
+display: flex; flex-direction: column;
+align-items: center; text-align: center;
+text-decoration: none; color: var(–text);
+cursor: pointer;
+padding: 4px;
+}
+.hub-tile-img {
+width: 100%; aspect-ratio: 1;
+border-radius: 6px;
+display: flex; align-items: center; justify-content: center;
+font-size: 40px;
+margin-bottom: 8px;
+overflow: hidden;
+}
+.hub-tile-label {
+font-size: 13px; color: var(–mid); line-height: 1.3;
+padding-bottom: 8px;
+}
+.hub-tile-label.bold { font-weight: 700; color: var(–text); }
+
+/* ── CHIP SCROLLER ── */
+.chip-scroller {
+display: flex; gap: 8px;
+overflow-x: auto; padding-bottom: 16px;
+scrollbar-width: none;
+}
+.chip-scroller::-webkit-scrollbar { display: none; }
+.chip {
+white-space: nowrap;
+border: 1px solid #D0D0D0;
+border-radius: 100px;
+padding: 6px 16px;
+font-size: 13px;
+cursor: pointer;
+background: #fff;
+flex-shrink: 0;
+}
+.chip:hover { background: var(–near-white); }
+.divider { height: 1px; background: #E5E5E5; margin: 4px 0 20px; }
+
+/* ── PRISM COLLECTION (Discover new finds equivalent) ── */
+/* Left: large square. Right: 1 horizontal + 2 small vertical */
+.prism-grid {
+display: grid;
+grid-template-columns: 1fr 1fr 1fr;
+grid-template-rows: auto;
+gap: 12px;
+padding-bottom: 24px;
+}
+.prism-hero {
+grid-column: 1;
+grid-row: 1 / 3;
+}
+.prism-top {
+grid-column: 2 / 4;
+grid-row: 1;
+}
+.prism-sm-1 {
+grid-column: 2;
+grid-row: 2;
+}
+.prism-sm-2 {
+grid-column: 3;
+grid-row: 2;
+}
+
+.prism-card {
+border-radius: 8px;
+overflow: hidden;
+position: relative;
+cursor: pointer;
+}
+.prism-card-inner {
+width: 100%; height: 100%;
+position: relative;
+display: flex; align-items: flex-start;
+justify-content: flex-start;
+padding: 20px 20px;
+min-height: 200px;
+}
+.prism-hero .prism-card-inner { min-height: 430px; align-items: flex-end; }
+.prism-top .prism-card-inner { min-height: 200px; }
+.prism-sm-1 .prism-card-inner,
+.prism-sm-2 .prism-card-inner { min-height: 220px; align-items: flex-start; }
+
+.prism-bg {
+position: absolute; inset: 0;
+display: flex; align-items: center; justify-content: center;
+font-size: 80px; opacity: 0.2;
+}
+.prism-content { position: relative; z-index: 1; }
+.prism-eyebrow { font-size: 12px; color: var(–blue); margin-bottom: 4px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; }
+.prism-title {
+font-family: ‘Lato’, sans-serif;
+font-size: 22px; font-weight: 900;
+color: var(–blue); line-height: 1.15;
+}
+.prism-hero .prism-title { font-size: 32px; }
+.prism-cta {
+display: inline-block;
+margin-top: 12px;
+background: #fff;
+color: var(–text);
+font-weight: 700;
+font-size: 13px;
+padding: 8px 18px;
+border-radius: 100px;
+border: 1.5px solid #D0D0D0;
+text-decoration: none;
+cursor: pointer;
+}
+.prism-link {
+display: inline-block;
+margin-top: 8px;
+color: var(–blue);
+font-size: 13px;
+text-decoration: underline;
+cursor: pointer;
+}
+
+/* ── PRODUCT ROW (16:9 banner LEFT + carousel RIGHT) ── */
+.atf-wrapper {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 12px;
+padding-bottom: 24px;
+align-items: start;
+}
+.atf-banner {
+border-radius: 8px;
+overflow: hidden;
+position: relative;
+cursor: pointer;
+/* 16:9 */
+aspect-ratio: 16/9;
+}
+.atf-banner-inner {
+position: absolute; inset: 0;
+display: flex; flex-direction: column;
+justify-content: flex-end;
+padding: 24px 28px;
+}
+.atf-banner-bg {
+position: absolute; inset: 0;
+display: flex; align-items: center; justify-content: center;
+font-size: 100px; opacity: 0.15;
+}
+.atf-banner-content { position: relative; z-index: 1; }
+.atf-banner-eyebrow {
+font-size: 12px; text-transform: uppercase;
+letter-spacing: 0.1em; font-weight: 700;
+margin-bottom: 6px;
+}
+.atf-banner-title {
+font-family: ‘Lato’, sans-serif;
+font-size: 28px; font-weight: 900;
+line-height: 1.1;
+}
+.atf-banner-cta {
+display: inline-block; margin-top: 14px;
+background: #fff; color: var(–text);
+font-weight: 700; font-size: 13px;
+padding: 8px 18px; border-radius: 100px;
+border: 1.5px solid #D0D0D0;
+cursor: pointer;
+}
+.atf-right {}
+.atf-right-header {
+display: flex; justify-content: space-between;
+align-items: baseline; margin-bottom: 10px;
+}
+.atf-right-header h3 {
+font-size: 18px; font-weight: 700;
+}
+.atf-right-header p { font-size: 13px; color: var(–light); margin-top: 2px; }
+
+/* ── CAROUSEL ── */
+.carousel-wrap { position: relative; }
+.carousel {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 8px;
+}
+.product-card {
+border: 1.5px solid var(–border);
+border-radius: 8px;
+overflow: hidden;
+background: #fff;
+position: relative;
+}
+.product-img {
+width: 100%;
+aspect-ratio: 1;
+display: flex; align-items: center; justify-content: center;
+font-size: 42px;
+position: relative;
+}
+.product-img-bg {
+position: absolute; inset: 0;
+opacity: 0.15; display: flex;
+align-items: center; justify-content: center;
+font-size: 60px;
+}
+.product-img-icon { position: relative; z-index: 1; font-size: 42px; }
+.heart-btn {
+position: absolute; top: 6px; right: 6px;
+background: #fff; border: none;
+border-radius: 50%; width: 28px; height: 28px;
+display: flex; align-items: center; justify-content: center;
+cursor: pointer; font-size: 14px; color: #999;
+box-shadow: 0 1px 4px rgba(0,0,0,0.12);
+z-index: 2;
+}
+.product-body { padding: 10px; }
+.add-btn {
+background: var(–purple); color: #fff;
+border: none; border-radius: 100px;
+padding: 6px 14px;
+font-size: 12px; font-weight: 700;
+cursor: pointer; display: flex;
+align-items: center; gap: 4px;
+margin-bottom: 8px;
+}
+.product-price {
+font-size: 16px; font-weight: 700;
+color: var(–text); display: flex;
+align-items: baseline; gap: 4px;
+}
+.price-sup { font-size: 11px; vertical-align: super; }
+.price-big { font-size: 22px; }
+.price-cents { font-size: 11px; vertical-align: super; }
+.price-was { font-size: 12px; color: var(–light); text-decoration: line-through; }
+.price-rollback { color: #2E7D32; font-size: 12px; font-weight: 700; }
+.product-name { font-size: 13px; color: var(–mid); margin-top: 4px; line-height: 1.3; }
+.stars { color: #F5A623; font-size: 11px; margin-top: 4px; display: flex; align-items: center; gap: 4px; }
+.stars span { color: var(–light); font-size: 11px; }
+.carousel-next {
+position: absolute; right: -16px; top: 50%;
+transform: translateY(-50%);
+background: #fff; border: 1px solid #D0D0D0;
+border-radius: 50%; width: 32px; height: 32px;
+display: flex; align-items: center; justify-content: center;
+cursor: pointer; font-size: 16px;
+box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* ── SIMPLE PRODUCT ROW (just title + carousel, no 16:9 banner) ── */
+.simple-row { padding-bottom: 24px; }
+.simple-row-header {
+display: flex; justify-content: space-between;
+align-items: baseline; margin-bottom: 12px;
+}
+.simple-row-header h2 { font-size: 20px; font-weight: 700; }
+.simple-row-header p { font-size: 13px; color: var(–light); margin-top: 2px; }
+.simple-carousel {
+display: grid;
+grid-template-columns: repeat(4, 1fr);
+gap: 8px;
+position: relative;
+}
+
+/* ── VILLAGE BANNER (full-width, styled like an ATF banner but full) ── */
+.village-banner {
+border-radius: 8px;
+overflow: hidden;
+position: relative;
+margin-bottom: 24px;
+cursor: pointer;
+}
+.village-banner-inner {
+background: var(–purple);
+padding: 48px 56px;
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 48px;
+align-items: center;
+position: relative;
+}
+.vb-bg {
+position: absolute; right: 0; top: 0; bottom: 0;
+width: 50%;
+opacity: 0.05;
+display: flex; align-items: center; justify-content: center;
+font-size: 200px;
+}
+.vb-eyebrow {
+font-size: 11px; letter-spacing: 0.16em;
+text-transform: uppercase; color: rgba(255,255,255,0.65);
+margin-bottom: 10px; font-weight: 700;
+}
+.vb-title {
+font-family: ‘Playfair Display’, serif;
+font-size: 36px; line-height: 1.15; color: #fff;
+}
+.vb-title em { font-style: italic; }
+.vb-body {
+font-size: 14px; color: rgba(255,255,255,0.78);
+line-height: 1.7; margin-top: 14px; max-width: 380px;
+}
+.vb-cta {
+display: inline-block; margin-top: 20px;
+border: 1.5px solid rgba(255,255,255,0.4);
+color: #fff; font-size: 13px; font-weight: 700;
+padding: 10px 24px; border-radius: 100px;
+cursor: pointer;
+}
+.vb-features { display: flex; flex-direction: column; gap: 20px; position: relative; z-index: 1; }
+.vb-feat { display: flex; align-items: flex-start; gap: 14px; }
+.vb-feat-icon {
+width: 40px; height: 40px; border-radius: 50%;
+background: rgba(255,255,255,0.14);
+display: flex; align-items: center; justify-content: center;
+font-size: 18px; flex-shrink: 0;
+}
+.vb-feat-title { font-size: 14px; font-weight: 700; color: #fff; }
+.vb-feat-sub { font-size: 12px; color: rgba(255,255,255,0.65); margin-top: 3px; line-height: 1.5; }
+
+/* ── TESTIMONIALS (inside a simple row) ── */
+.test-row { padding-bottom: 24px; }
+.test-grid {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 12px;
+}
+.test-card {
+background: var(–cream);
+border: 1px solid var(–border);
+border-radius: 8px;
+padding: 20px;
+position: relative;
+}
+.test-qm {
+font-family: ‘Playfair Display’, serif;
+font-size: 48px; opacity: 0.18; color: var(–purple);
+line-height: 1; position: absolute; top: 8px; left: 16px;
+}
+.test-text {
+font-size: 13px; font-style: italic;
+color: var(–mid); line-height: 1.65;
+margin-top: 22px;
+}
+.test-stars { color: #F5A623; font-size: 13px; margin-top: 10px; }
+.test-author { display: flex; align-items: center; gap: 8px; margin-top: 10px; }
+.test-av {
+width: 30px; height: 30px; border-radius: 50%;
+background: linear-gradient(135deg, var(–blush), #EDE5F5);
+display: flex; align-items: center; justify-content: center;
+font-size: 14px;
+}
+.test-name { font-size: 12px; font-weight: 700; }
+.test-detail { font-size: 11px; color: var(–light); margin-top: 1px; }
+
+/* ── FAQ ACCORDION ── */
+.faq-section { padding: 8px 0 32px; }
+.faq-item { border-top: 1px solid #E5E5E5; }
+.faq-item:last-child { border-bottom: 1px solid #E5E5E5; }
+.faq-q {
+display: flex; justify-content: space-between;
+align-items: center;
+padding: 14px 0; cursor: pointer;
+font-size: 15px; font-weight: 400;
+}
+.faq-icon { font-size: 20px; color: var(–mid); }
+.faq-a { display: none; padding: 0 0 14px; font-size: 14px; color: var(–mid); line-height: 1.6; }
+.faq-item.open .faq-a { display: block; }
+.faq-item.open .faq-icon { transform: rotate(180deg); }
+
+/* ── FOOTER ── */
+footer {
+background: #F4F4F4;
+border-top: 1px solid #E5E5E5;
+padding: 24px;
+text-align: center;
+font-size: 12px;
+color: var(–light);
+}
+footer a { color: var(–light); text-decoration: underline; margin: 0 8px; }
+
+/* color helpers for tiles */
+.bg-diaper   { background: linear-gradient(145deg, #F5EDE0, #EDD5C0); }
+.bg-pants    { background: linear-gradient(145deg, #EDE5F5, #D8C4F0); }
+.bg-wipes    { background: linear-gradient(145deg, #E8F0E4, #D4E2CF); }
+.bg-formula  { background: linear-gradient(145deg, #FFF3E4, #FFE0B8); }
+.bg-foods    { background: linear-gradient(145deg, #FFF8E4, #FFEDB8); }
+.bg-feeding  { background: linear-gradient(145deg, #E8F0F8, #C4DCF0); }
+.bg-bedding  { background: linear-gradient(145deg, #F0EEF8, #D8D4F0); }
+.bg-bath     { background: linear-gradient(145deg, #E8F4F8, #C4E4F0); }
+.bg-purple   { background: linear-gradient(145deg, #EDE5F5, #D0BAEC); }
+.bg-green    { background: linear-gradient(145deg, #D4E2CF, #90C488); }
+.bg-blush    { background: linear-gradient(145deg, #F0E0C8, #C8925C); }
+
+/* prism backgrounds */
+.prism-diaper  { background: linear-gradient(145deg, #F2E4CC 0%, #C88858 100%); }
+.prism-pants   { background: linear-gradient(145deg, #E8DCFF 0%, #8A5CC0 100%); }
+.prism-village { background: linear-gradient(135deg, #4A2D6A 0%, #6B4E8A 100%); }
+.prism-wipes   { background: linear-gradient(145deg, #D4E8D0 0%, #5A9850 100%); }
+.prism-formula { background: linear-gradient(145deg, #FFF0D8 0%, #E8A040 100%); }
+</style>
+
+</head>
+<body>
+
+<!-- ══════════════════════════════════════
+     SKINNY BANNER
+══════════════════════════════════════ -->
+
+<div class="skinny-banner">
+  <div class="sb-left">
+    <div class="sb-left-icon">♥</div>
+    <div>Parent's<br>Choice™</div>
+  </div>
+  <div class="sb-center">
+    <h2>It takes a village to raise a child</h2>
+    <p>Trusted care for every stage -- delivered fast.*</p>
+    <a href="#">Shop now</a>
+  </div>
+  <div class="sb-right">
+    <div class="sb-product bg-diaper">🍼</div>
+    <div class="sb-product bg-pants">👖</div>
+  </div>
+</div>
+
+<div class="main">
+
+  <!-- ══════════════════════════════════════
+       HUB SPOKES -- Explore the range
+  ══════════════════════════════════════ -->
+
+  <div class="section-header">
+    <h2>Explore the range</h2>
+    <a class="view-all" href="#">See less</a>
+  </div>
+
+  <div class="hub-grid">
+    <a class="hub-tile" href="#">
+      <div class="hub-tile-img bg-diaper">🍼</div>
+      <div class="hub-tile-label">Diapers</div>
+    </a>
+    <a class="hub-tile" href="#">
+      <div class="hub-tile-img bg-pants">👖</div>
+      <div class="hub-tile-label">Training Pants</div>
+    </a>
+    <a class="hub-tile" href="#">
+      <div class="hub-tile-img bg-wipes">🧻</div>
+      <div class="hub-tile-label">Wipes</div>
+    </a>
+    <a class="hub-tile" href="#">
+      <div class="hub-tile-img bg-formula">🥛</div>
+      <div class="hub-tile-label">Formula</div>
+    </a>
+    <a class="hub-tile" href="#">
+      <div class="hub-tile-img bg-foods">🥣</div>
+      <div class="hub-tile-label">Foods & Drinks</div>
+    </a>
+    <a class="hub-tile" href="#">
+      <div class="hub-tile-img bg-feeding">🍽️</div>
+      <div class="hub-tile-label">Feeding Essentials</div>
+    </a>
+    <a class="hub-tile" href="#">
+      <div class="hub-tile-img bg-bedding">🛏️</div>
+      <div class="hub-tile-label">Bedding</div>
+    </a>
+    <a class="hub-tile" href="#">
+      <div class="hub-tile-img bg-bath">🛁</div>
+      <div class="hub-tile-label bold">Bath</div>
+    </a>
+  </div>
+
+  <!-- Chip scroller -->
+
+  <div class="chip-scroller">
+    <button class="chip">Parent's Choice diapers newborn</button>
+    <button class="chip">training pants 2T–3T</button>
+    <button class="chip">sensitive diapers</button>
+    <button class="chip">overnight diapers</button>
+    <button class="chip">fragrance-free wipes</button>
+    <button class="chip">infant formula</button>
+    <button class="chip">baby food pouches</button>
+    <button class="chip">baby bottles</button>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ══════════════════════════════════════
+       PRISM COLLECTION -- Diapers & Pants featured
+       (mirrors "Discover new finds & culinary delights")
+  ══════════════════════════════════════ -->
+
+  <div class="prism-grid">
+
+```
+<!-- Hero left -- large square -->
+<div class="prism-card prism-hero">
+  <div class="prism-card-inner prism-diaper">
+    <div class="prism-bg">🍼</div>
+    <div class="prism-content">
+      <div class="prism-title" style="color:var(--blue)">Protection<br>for every<br>stage</div>
+      <a class="prism-cta" href="#">Shop now</a>
+    </div>
+  </div>
+</div>
+
+<!-- Top right -- horizontal banner -->
+<div class="prism-card prism-top">
+  <div class="prism-card-inner prism-pants">
+    <div class="prism-bg">👖</div>
+    <div class="prism-content">
+      <div class="prism-eyebrow" style="color:var(--purple-dark)">Training Pants</div>
+      <div class="prism-title" style="color:var(--blue); font-size:20px">Ready to move.<br>Ready to grow.</div>
+      <a class="prism-link" href="#">Shop now</a>
+    </div>
+  </div>
+</div>
+
+<!-- Bottom right small 1 -->
+<div class="prism-card prism-sm-1">
+  <div class="prism-card-inner prism-wipes">
+    <div class="prism-bg">🧻</div>
+    <div class="prism-content">
+      <div class="prism-eyebrow" style="color:var(--green)">Wipes</div>
+      <div class="prism-title" style="color:var(--blue); font-size:16px">Thick, gentle<br>wipes</div>
+      <a class="prism-link" href="#">Shop now</a>
+    </div>
+  </div>
+</div>
+
+<!-- Bottom right small 2 -->
+<div class="prism-card prism-sm-2">
+  <div class="prism-card-inner prism-formula">
+    <div class="prism-bg">🥛</div>
+    <div class="prism-content">
+      <div class="prism-eyebrow" style="color:#8A5800">Formula & Foods</div>
+      <div class="prism-title" style="color:var(--blue); font-size:16px">Nourishing<br>every bite</div>
+      <a class="prism-link" href="#">Shop now</a>
+    </div>
+  </div>
+</div>
+```
+
+  </div><!-- /prism-grid -->
+
+  <!-- ══════════════════════════════════════
+       ATF ROW 1 -- Diapers
+       16:9 banner LEFT + product carousel RIGHT
+       (mirrors "Convenient & flavorful breakfast bites")
+  ══════════════════════════════════════ -->
+
+  <div class="atf-wrapper">
+    <!-- 16:9 banner -->
+    <div class="atf-banner prism-diaper">
+      <div class="atf-banner-bg">🍼</div>
+      <div class="atf-banner-inner">
+        <div class="atf-banner-content">
+          <div class="atf-banner-eyebrow" style="color:var(--blue)">Leakproof · Soft · Every size</div>
+          <div class="atf-banner-title" style="color:var(--blue)">Convenient &<br>trusted<br>diaper care</div>
+          <div class="atf-banner-cta">Shop now</div>
+        </div>
+      </div>
+    </div>
+
+```
+<!-- Carousel right -->
+<div class="atf-right">
+  <div class="atf-right-header">
+    <div>
+      <h3>Diapers</h3>
+      <p>Newborn to size 6 · Sensitive · Overnight</p>
+    </div>
+    <a class="view-all" href="#">View all</a>
+  </div>
+  <div class="carousel-wrap">
+    <div class="carousel">
+
+      <div class="product-card">
+        <div class="product-img bg-diaper">
+          <div class="product-img-bg">🍼</div>
+          <button class="heart-btn">♡</button>
+          <span class="product-img-icon">🍼</span>
+        </div>
+        <div class="product-body">
+          <button class="add-btn">＋ Add</button>
+          <div class="product-price">
+            <span class="price-sup">$</span><span class="price-big">24</span><span class="price-cents">97</span>
+          </div>
+          <div class="price-was">Was $28.22 · 11.3¢/ct</div>
+          <div class="price-rollback">🔁 Rollback</div>
+          <div class="product-name">Parent's Choice Diapers Size 3 · 222 ct</div>
+          <div class="stars">★★★★★ <span>(1,243)</span></div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-img bg-diaper">
+          <div class="product-img-bg">🍼</div>
+          <button class="heart-btn">♡</button>
+          <span class="product-img-icon">🍼</span>
+        </div>
+        <div class="product-body">
+          <button class="add-btn">＋ Add</button>
+          <div class="product-price">
+            <span class="price-sup">$</span><span class="price-big">20</span><span class="price-cents">97</span>
+          </div>
+          <div class="product-name">Sensitive Diapers Size 2 · 192 ct</div>
+          <div class="stars">★★★★★ <span>(987)</span></div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-img bg-diaper">
+          <div class="product-img-bg">🌙</div>
+          <button class="heart-btn">♡</button>
+          <span class="product-img-icon">🌙</span>
+        </div>
+        <div class="product-body">
+          <button class="add-btn">＋ Add</button>
+          <div class="product-price">
+            <span class="price-sup">$</span><span class="price-big">22</span><span class="price-cents">47</span>
+          </div>
+          <div class="product-name">Overnight Diapers Size 4 · 144 ct</div>
+          <div class="stars">★★★★☆ <span>(652)</span></div>
+        </div>
+      </div>
+
+    </div>
+    <button class="carousel-next">›</button>
+  </div>
+</div>
+```
+
+  </div><!-- /atf-wrapper diapers -->
+
+  <!-- ══════════════════════════════════════
+       SIMPLE ROW 1 -- Training Pants
+       (mirrors "Easy morning fuel" -- just title + View all + carousel)
+  ══════════════════════════════════════ -->
+
+  <div class="simple-row">
+    <div class="simple-row-header">
+      <div>
+        <h2>Training Pants</h2>
+        <p>Freedom to move · Pull-up ease · 2T–5T</p>
+      </div>
+      <a class="view-all" href="#">View all</a>
+    </div>
+    <div class="simple-carousel">
+
+```
+  <div class="product-card">
+    <div class="product-img bg-pants">
+      <button class="heart-btn">♡</button>
+      <span class="product-img-icon">👖</span>
+    </div>
+    <div class="product-body">
+      <button class="add-btn" style="background:var(--purple)">＋ Add</button>
+      <div class="product-price"><span class="price-sup">$</span><span class="price-big">19</span><span class="price-cents">97</span></div>
+      <div class="product-name">Training Pants Girls 2T–3T · 92 ct</div>
+      <div class="stars">★★★★★ <span>(832)</span></div>
+    </div>
+  </div>
+
+  <div class="product-card">
+    <div class="product-img bg-pants">
+      <button class="heart-btn">♡</button>
+      <span class="product-img-icon">👖</span>
+    </div>
+    <div class="product-body">
+      <button class="add-btn" style="background:var(--purple)">＋ Add</button>
+      <div class="product-price"><span class="price-sup">$</span><span class="price-big">19</span><span class="price-cents">97</span></div>
+      <div class="product-name">Training Pants Boys 2T–3T · 92 ct</div>
+      <div class="stars">★★★★★ <span>(761)</span></div>
+    </div>
+  </div>
+
+  <div class="product-card">
+    <div class="product-img bg-pants">
+      <button class="heart-btn">♡</button>
+      <span class="product-img-icon">🌙</span>
+    </div>
+    <div class="product-body">
+      <button class="add-btn" style="background:var(--purple)">＋ Add</button>
+      <div class="product-price"><span class="price-sup">$</span><span class="price-big">17</span><span class="price-cents">47</span></div>
+      <div class="product-name">Night Training Pants 3T–4T · 60 ct</div>
+      <div class="stars">★★★★☆ <span>(312)</span></div>
+    </div>
+  </div>
+
+  <div class="product-card">
+    <div class="product-img bg-pants">
+      <button class="heart-btn">♡</button>
+      <span class="product-img-icon">👖</span>
+    </div>
+    <div class="product-body">
+      <button class="add-btn" style="background:var(--purple)">＋ Add</button>
+      <div class="product-price"><span class="price-sup">$</span><span class="price-big">21</span><span class="price-cents">47</span></div>
+      <div class="product-name">Training Pants 4T–5T · 80 ct</div>
+      <div class="stars">★★★★★ <span>(544)</span></div>
+    </div>
+  </div>
+
+</div>
+```
+
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ══════════════════════════════════════
+       VILLAGE BANNER -- full-width
+       (same form as ATF 16:9 banner, but full width)
+  ══════════════════════════════════════ -->
+
+  <div class="village-banner">
+    <div class="village-banner-inner">
+      <div class="vb-bg">🌿</div>
+      <div style="position:relative;z-index:1">
+        <div class="vb-eyebrow">Beyond the products</div>
+        <div class="vb-title">We didn't just build<br>a brand.<br><em>We built a village.</em></div>
+        <div class="vb-body">Parent's Choice is more than diapers. It's a community of parents and caregivers who believe great care shouldn't cost a fortune -- and that no parent should feel alone.</div>
+        <div class="vb-cta">Meet the village →</div>
+      </div>
+      <div class="vb-features">
+        <div class="vb-feat">
+          <div class="vb-feat-icon">🌿</div>
+          <div>
+            <div class="vb-feat-title">Thoughtfully made</div>
+            <div class="vb-feat-sub">Fragrance-free options, dermatologist-tested, soft-touch materials chosen with your baby's skin in mind.</div>
+          </div>
+        </div>
+        <div class="vb-feat">
+          <div class="vb-feat-icon">💜</div>
+          <div>
+            <div class="vb-feat-title">Community supported</div>
+            <div class="vb-feat-sub">Real parent reviews and a network of caregivers helping each other every day.</div>
+          </div>
+        </div>
+        <div class="vb-feat">
+          <div class="vb-feat-icon">💰</div>
+          <div>
+            <div class="vb-feat-title">Value without compromise</div>
+            <div class="vb-feat-sub">Quality you'd expect at twice the price -- because every family deserves the best start.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       TESTIMONIALS -- What parents are saying
+  ══════════════════════════════════════ -->
+
+  <div class="test-row">
+    <div class="simple-row-header">
+      <div>
+        <h2>What parents are saying</h2>
+        <p>Real reviews from real families -- the village speaks</p>
+      </div>
+      <a class="view-all" href="#">See all reviews</a>
+    </div>
+    <div class="test-grid">
+      <div class="test-card">
+        <div class="test-qm">"</div>
+        <div class="test-text">I've tried every brand on the shelf. Parent's Choice holds up overnight -- and at that price, I finally stopped worrying about the budget on top of everything else.</div>
+        <div class="test-stars">★★★★★</div>
+        <div class="test-author">
+          <div class="test-av">👩</div>
+          <div><div class="test-name">Sarah M.</div><div class="test-detail">Mom of 2 · Verified buyer</div></div>
+        </div>
+      </div>
+      <div class="test-card">
+        <div class="test-qm">"</div>
+        <div class="test-text">My son's skin is really sensitive and these are the only diapers that don't cause a rash. Found this brand through another mom in my group -- the village is real.</div>
+        <div class="test-stars">★★★★★</div>
+        <div class="test-author">
+          <div class="test-av">👩</div>
+          <div><div class="test-name">Jessica T.</div><div class="test-detail">First-time mom · Verified buyer</div></div>
+        </div>
+      </div>
+      <div class="test-card">
+        <div class="test-qm">"</div>
+        <div class="test-text">The training pants made potty training way less stressful. Easy on, easy off, no leaks. My daughter loves pulling them up herself now.</div>
+        <div class="test-stars">★★★★★</div>
+        <div class="test-author">
+          <div class="test-av">👨</div>
+          <div><div class="test-name">Marcus R.</div><div class="test-detail">Dad of 3 · Verified buyer</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ══════════════════════════════════════
+       ATF ROW 2 -- Foods & Drinks
+  ══════════════════════════════════════ -->
+
+  <div class="atf-wrapper">
+    <div class="atf-banner bg-green" style="background:linear-gradient(145deg,#C8E0C4 0%,#3A7830 100%)">
+      <div class="atf-banner-bg" style="color:#fff">🥣</div>
+      <div class="atf-banner-inner">
+        <div class="atf-banner-content">
+          <div class="atf-banner-eyebrow" style="color:rgba(255,255,255,0.8)">Stage 1 to toddler</div>
+          <div class="atf-banner-title" style="color:#fff">Nourishing<br>every<br>bite</div>
+          <div class="atf-banner-cta">Shop now</div>
+        </div>
+      </div>
+    </div>
+    <div class="atf-right">
+      <div class="atf-right-header">
+        <div>
+          <h3>Foods & Drinks</h3>
+          <p>Purees · Snacks · Juices · Every stage</p>
+        </div>
+        <a class="view-all" href="#">View all</a>
+      </div>
+      <div class="carousel-wrap">
+        <div class="carousel">
+          <div class="product-card">
+            <div class="product-img bg-foods">
+              <button class="heart-btn">♡</button>
+              <span class="product-img-icon">🥣</span>
+            </div>
+            <div class="product-body">
+              <button class="add-btn" style="background:var(--green)">＋ Add</button>
+              <div class="product-price"><span class="price-sup">$</span><span class="price-big">8</span><span class="price-cents">97</span></div>
+              <div class="product-name">Apple & Banana Puree Stage 1 · 12 ct</div>
+              <div class="stars">★★★★★ <span>(654)</span></div>
+            </div>
+          </div>
+          <div class="product-card">
+            <div class="product-img bg-foods">
+              <button class="heart-btn">♡</button>
+              <span class="product-img-icon">🍎</span>
+            </div>
+            <div class="product-body">
+              <button class="add-btn" style="background:var(--green)">＋ Add</button>
+              <div class="product-price"><span class="price-sup">$</span><span class="price-big">5</span><span class="price-cents">97</span></div>
+              <div class="product-name">Toddler Apple Juice · 6.75 oz, 8 ct</div>
+              <div class="stars">★★★★☆ <span>(421)</span></div>
+            </div>
+          </div>
+          <div class="product-card">
+            <div class="product-img bg-foods">
+              <button class="heart-btn">♡</button>
+              <span class="product-img-icon">🥨</span>
+            </div>
+            <div class="product-body">
+              <button class="add-btn" style="background:var(--green)">＋ Add</button>
+              <div class="product-price"><span class="price-sup">$</span><span class="price-big">2</span><span class="price-cents">47</span></div>
+              <div class="product-name">Strawberry Puffs Snack · 1.48 oz</div>
+              <div class="stars">★★★★★ <span>(318)</span></div>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-next">›</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       SIMPLE ROW 2 -- Wipes
+  ══════════════════════════════════════ -->
+
+  <div class="simple-row">
+    <div class="simple-row-header">
+      <div>
+        <h2>Wipes</h2>
+        <p>Thick, gentle, fragrance-free options</p>
+      </div>
+      <a class="view-all" href="#">View all</a>
+    </div>
+    <div class="simple-carousel">
+      <div class="product-card">
+        <div class="product-img bg-wipes">
+          <button class="heart-btn">♡</button>
+          <span class="product-img-icon">🧻</span>
+        </div>
+        <div class="product-body">
+          <button class="add-btn">＋ Add</button>
+          <div class="product-price"><span class="price-sup">$</span><span class="price-big">12</span><span class="price-cents">97</span></div>
+          <div class="product-name">Fragrance-Free Baby Wipes · 800 ct</div>
+          <div class="stars">★★★★★ <span>(2,104)</span></div>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-img bg-wipes">
+          <button class="heart-btn">♡</button>
+          <span class="product-img-icon">🧻</span>
+        </div>
+        <div class="product-body">
+          <button class="add-btn">＋ Add</button>
+          <div class="product-price"><span class="price-sup">$</span><span class="price-big">9</span><span class="price-cents">97</span></div>
+          <div class="product-name">Sensitive Baby Wipes · 600 ct</div>
+          <div class="stars">★★★★★ <span>(1,432)</span></div>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-img bg-wipes">
+          <button class="heart-btn">♡</button>
+          <span class="product-img-icon">🧻</span>
+        </div>
+        <div class="product-body">
+          <button class="add-btn">＋ Add</button>
+          <div class="product-price"><span class="price-sup">$</span><span class="price-big">6</span><span class="price-cents">97</span></div>
+          <div class="product-name">Baby Wipes Travel Pack · 240 ct</div>
+          <div class="stars">★★★★★ <span>(876)</span></div>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-img bg-wipes">
+          <button class="heart-btn">♡</button>
+          <span class="product-img-icon">🧻</span>
+        </div>
+        <div class="product-body">
+          <button class="add-btn">＋ Add</button>
+          <div class="product-price"><span class="price-sup">$</span><span class="price-big">4</span><span class="price-cents">97</span></div>
+          <div class="product-name">Flushable Toddler Wipes · 168 ct</div>
+          <div class="stars">★★★★☆ <span>(512)</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ══════════════════════════════════════
+       ATF ROW 3 -- Everything else
+  ══════════════════════════════════════ -->
+
+  <div class="atf-wrapper">
+    <div class="atf-banner bg-purple">
+      <div class="atf-banner-bg" style="color:#fff">🍼</div>
+      <div class="atf-banner-inner">
+        <div class="atf-banner-content">
+          <div class="atf-banner-eyebrow" style="color:rgba(255,255,255,0.75)">Feeding · Bedding · Bath</div>
+          <div class="atf-banner-title" style="color:#fff">Everything<br>else your<br>baby needs</div>
+          <div class="atf-banner-cta">Browse all</div>
+        </div>
+      </div>
+    </div>
+    <div class="atf-right">
+      <div class="atf-right-header">
+        <div>
+          <h3>More from Parent's Choice</h3>
+          <p>Formula · Feeding · Bedding · Bath</p>
+        </div>
+        <a class="view-all" href="#">View all</a>
+      </div>
+      <div class="carousel-wrap">
+        <div class="carousel">
+          <div class="product-card">
+            <div class="product-img bg-formula">
+              <button class="heart-btn">♡</button>
+              <span class="product-img-icon">🥛</span>
+            </div>
+            <div class="product-body">
+              <button class="add-btn">＋ Add</button>
+              <div class="product-price"><span class="price-sup">$</span><span class="price-big">21</span><span class="price-cents">97</span></div>
+              <div class="product-name">Infant Formula · 36 oz</div>
+              <div class="stars">★★★★★ <span>(3,201)</span></div>
+            </div>
+          </div>
+          <div class="product-card">
+            <div class="product-img bg-feeding">
+              <button class="heart-btn">♡</button>
+              <span class="product-img-icon">🍼</span>
+            </div>
+            <div class="product-body">
+              <button class="add-btn">＋ Add</button>
+              <div class="product-price"><span class="price-sup">$</span><span class="price-big">6</span><span class="price-cents">97</span></div>
+              <div class="product-name">Slow-Flow Baby Bottle · 5 oz, 2-pk</div>
+              <div class="stars">★★★★★ <span>(731)</span></div>
+            </div>
+          </div>
+          <div class="product-card">
+            <div class="product-img bg-bath">
+              <button class="heart-btn">♡</button>
+              <span class="product-img-icon">🛁</span>
+            </div>
+            <div class="product-body">
+              <button class="add-btn">＋ Add</button>
+              <div class="product-price"><span class="price-sup">$</span><span class="price-big">4</span><span class="price-cents">97</span></div>
+              <div class="product-name">Gentle Baby Wash & Shampoo · 18 fl oz</div>
+              <div class="stars">★★★★☆ <span>(489)</span></div>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-next">›</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ══════════════════════════════════════
+       FAQ
+  ══════════════════════════════════════ -->
+
+  <div class="faq-section">
+    <div class="faq-item" onclick="this.classList.toggle('open')">
+      <div class="faq-q">What is Parent's Choice? <span class="faq-icon">∨</span></div>
+      <div class="faq-a">Parent's Choice is Walmart's trusted baby brand -- offering diapers, training pants, wipes, formula, foods, feeding essentials, bedding and bath products designed to give every family quality care at prices they can count on.</div>
+    </div>
+    <div class="faq-item" onclick="this.classList.toggle('open')">
+      <div class="faq-q">What does "It takes a village" mean for Parent's Choice? <span class="faq-icon">∨</span></div>
+      <div class="faq-a">Beyond making great products, Parent's Choice is built on a belief that no parent should feel alone. The brand supports a community of caregivers, offers real parent reviews, and continuously improves based on family feedback.</div>
+    </div>
+    <div class="faq-item" onclick="this.classList.toggle('open')">
+      <div class="faq-q">Are Parent's Choice diapers fragrance-free? <span class="faq-icon">∨</span></div>
+      <div class="faq-a">Yes -- the Sensitive line is fragrance-free and hypoallergenic, dermatologist-tested for babies with sensitive skin. Standard diapers are also designed to be gentle, with a soft inner layer and leakproof protection.</div>
+    </div>
+    <div class="faq-item" onclick="this.classList.toggle('open')">
+      <div class="faq-q">What sizes do Parent's Choice diapers and training pants come in? <span class="faq-icon">∨</span></div>
+      <div class="faq-a">Diapers are available from Newborn through Size 6. Training pants are available in 2T–3T, 3T–4T, and 4T–5T in both girls' and boys' styles, plus overnight training pants.</div>
+    </div>
+    <div class="faq-item" onclick="this.classList.toggle('open')">
+      <div class="faq-q">*Terms & Conditions <span class="faq-icon">∨</span></div>
+      <div class="faq-a">Express Delivery subject to availability at select stores. Delivery fees & restrictions apply.</div>
+    </div>
+  </div>
+
+</div><!-- /main -->
+
+<footer>
+  <div style="margin-bottom:8px">
+    <strong style="font-size:14px;color:#333">Parent's Choice™</strong>
+    <span style="margin:0 8px;color:#ccc">|</span>
+    <em style="color:#555">It takes a village to raise a child… we have built one.</em>
+    <span style="margin:0 8px;color:#ccc">|</span>
+    A Walmart brand
+  </div>
+  <div>
+    <a href="#">Terms of Use</a>
+    <a href="#">Privacy Notice</a>
+    <a href="#">Your Privacy Choices</a>
+    <a href="#">Accessibility</a>
+  </div>
+  <div style="margin-top:8px">© 2026 Walmart. All Rights Reserved.</div>
+</footer>
+
+</body>
+</html>
